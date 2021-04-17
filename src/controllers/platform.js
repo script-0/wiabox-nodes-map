@@ -49,9 +49,10 @@ exports.get_platform = function (req, res) {
     PlatformModel.get_id(platform, function (err, ids) {
         if (err) {
             res.send(err)
+        }else{
+          platform.id = ids.id
+          res.json(platform)
         }
-        platform.id = ids.id
-        res.json(platform)
     })
 }
 

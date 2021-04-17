@@ -117,6 +117,55 @@ exports.update_node_community = function (req, res) {
 }
 
 /*
+
+*/
+exports.getOutliers = function (req, res) {
+    NodeModel.findOutliers(function (err, user) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json(user);
+        }
+    })
+}
+
+/*
+    {
+        name : community_name
+    }
+    OR
+    {
+        id : community_id
+    }
+*/
+exports.findByCommunity = function (req, res) {
+    if (!(req.body.name === undefined)) {
+        //Retrieving community id using its name ( req.body.name)
+        CommunityModel.findByName(req.body.name, function (error, result) {
+            if (error) {
+                res.send(error)
+            } else {
+                NodeModel.findByCommunity(result.id, function (err, node) {
+                    if (err) {
+                        res.send(err)
+                    } else {
+                        res.json(node)
+                    }
+                })
+            }
+        })
+    } else {
+        NodeModel.create(req.body.id, function (err, node) {
+            if (err) {
+                res.send(err)
+            } else {
+                res.json(node)
+            }
+        })
+    }
+}
+
+/*
     {
         id:id
     }
