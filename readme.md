@@ -61,7 +61,7 @@ $ npm install
 
 ## Making tests
 - Open files on `routes/` , they are well documented. 
-- `tests` contain some tests already done and future work
+- `tests` file contain some tests already done and future work
 
 ## Future works
 
