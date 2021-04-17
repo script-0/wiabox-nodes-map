@@ -16,7 +16,12 @@ exports.list_all = function (req, res) {
     })
 }
 
-
+/*  
+  {
+    name     : platform_name,
+    password : platform_password
+  }
+*/
 exports.create_platform = function (req, res) {
   //!!! Verify Body Fields !!!
   console.log(req.body)
@@ -44,6 +49,12 @@ exports.get_platform = function (req, res) {
     })
 }
 
+/*  
+  {
+    name     : platform_name,
+    password : platform_password
+  }
+*/
 exports.update_platform = function (req, res) {
   console.log(req.body)
   //!!! Verify Body Fields !!!
@@ -62,6 +73,16 @@ exports.update_platform = function (req, res) {
   });
 }
 
+/*  
+  {
+    name     : platform_name,
+    password : platform_password
+  }
+
+  return  : {
+    token : token_value
+  }
+*/
 exports.login = function (req, res) {
   PlatformModel.find(req.body.name, req.body.password, function (err, platform) {
     if (err){
@@ -73,6 +94,9 @@ exports.login = function (req, res) {
   })
 }
 
+/*
+  Authorization: Bearer TOKEN_VALUE
+*/
 exports.authentificate = function(req,res,next){
     
   console.log("Authentification starting ...")
