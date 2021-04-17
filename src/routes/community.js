@@ -11,7 +11,7 @@ module.exports = function(app) {
             creator : community_creator_node_id
         }
     */
-    app.route('community/add').post(platformController.authentificate,communityController.create_community)
+    app.route('/community/add').post(platformController.authentificate,communityController.create_community)
     
     /*  
         Authorization: Bearer TOKEN_VALUE
@@ -21,7 +21,7 @@ module.exports = function(app) {
             creator : new_community_creator_node_id
         }
     */
-    app.route('commnunity/update').post(platformController.authentificate,communityController.update)
+    app.route('/commnunity/update').post(platformController.authentificate,communityController.update)
     
     /*  
         Authorization: Bearer TOKEN_VALUE
@@ -34,8 +34,8 @@ module.exports = function(app) {
             id : id
         }
     */
-    app.route('community/update/get').post(platformController.authentificate,communityController.get)
-    app.route('community/update/get_creator').post(platformController.authentificate,communityController.get_creator)
+    app.route('/community/update/get').post(platformController.authentificate,communityController.get)
+    app.route('/community/update/get_creator').post(platformController.authentificate,communityController.get_creator)
 
     /*
         return : 
