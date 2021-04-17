@@ -5,7 +5,7 @@
     - [ x ] login , result = {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YWx1ZSI6MSwiaWF0IjoxNjE4Njg1MDg5LCJleHAiOjE2MTg2ODg2ODl9.iVWrvdBCGhWNv-P-WFh6Y8JLpnk28oX0Zjrk2WMuZMc"} 
     - [ x ] get 
     - [ x ] update -> 
-        - [ ] cancel current token
+        - [ ] revoke current token
         - [ ] personalize error message
     - [ x ] Create -> update bd name column length from varchar(10) to varchar(50) [ x ]
 
