@@ -30,10 +30,10 @@ CREATE TABLE Community (
 CREATE TABLE Platform(
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(10),
-  token VARCHAR(5)
+  password VARCHAR(5)
 ) ENGINE=INNODB;
 
-INSERT INTO Platform (name,token) VALUES ('wiabox-map','password');
+INSERT INTO Platform (name,password) VALUES ('wiabox-map','password');
 
 
 /* Création de l'utilisateur node pour cette bd */
