@@ -3,7 +3,7 @@ Maps of Nodes and communities of Wiabox
 ## Requirements
 As it's a Node Project, you need :
   * **NodeJs 10+ And Npm 6+**
-  * **MySql / Postgres / MySql** for database
+  * **MySql** for database
 
 ## How can install
 1. Clone the project and Move to the project folder :
@@ -61,7 +61,7 @@ $ npm install
 
 ## Making tests
 - Open files on `routes/` , they are well documented. 
-- `tests` file contain some tests already done and future work
+- `tests` file contains some tests already done and future work
 
 ## Future works
 
