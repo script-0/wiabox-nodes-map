@@ -37,6 +37,12 @@ exports.create_platform = function (req, res) {
   });
 }
 
+/*  
+  {
+    name     : platform_name,
+    password : platform_password
+  }
+*/
 exports.get_platform = function (req, res) {
     //!!! Verify Body Fields !!!
     var platform = new PlatformModel(req.body)
@@ -51,8 +57,9 @@ exports.get_platform = function (req, res) {
 
 /*  
   {
-    name     : platform_name,
-    password : platform_password
+    id       : id
+    name     : new_platform_name,
+    password : new_platform_password
   }
 */
 exports.update_platform = function (req, res) {
