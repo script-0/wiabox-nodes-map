@@ -4,7 +4,6 @@ var sql = require('./db.js');
 
 var Community = function (community) {
   this.name = community.name;
-  this.long = community.long;
   this.creator = community.creator
 };
   
