@@ -26,7 +26,7 @@ Node.create = function(node, result){
     });
 };
 
-Node.get = function(id, result) {
+Node.findById = function(id, result) {
     sql.query("SELECT * from Node WHERE id = ?", id, function (err, res) {
       if (err) {
         console.error("Error: ", err);
@@ -37,6 +37,25 @@ Node.get = function(id, result) {
         result(null, res);
       }
     });
+};
+
+Node.findByCommunity = function (community_id, result) {
+  sql.query("SELECT * FROM Node WHERE community = ?", [community_id], function (err, res) {
+    if (err) {
+      console.error("Error: ", err);
+      result(err, null);
+    }
+    else {
+      console.log("Node with community_id=" + community_id + " found!");
+      console.log(null, res);
+      result(null, res)
+    }
+  })
+};
+
+
+Node.findOutliers = function (result) {
+  this.findByCommunity(-1,result)
 };
 
 Node.list = function(result) {
@@ -76,20 +95,6 @@ Node.remove = function (id, result) {
       result(null, res);
     }
   })
-};
-
-Node.find = function (id, result) {
-    sql.query("SELECT * FROM Node WHERE id = ?", [id, password], function (err, res) {
-      if (err) {
-        console.error("Error: ", err);
-        result(err, null);
-      }
-      else {
-        console.log("Node with id=" + id + " found!");
-        console.log(null, res);
-        result(null, res[0])
-      }
-    })
 };
 
 module.exports = Node;
