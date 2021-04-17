@@ -19,7 +19,7 @@ module.exports = function (app) {
              community : community_name
          }
      */
-    app.route('node/add').post(platformController.authentificate, nodeController.create_node)
+    app.route('/node/add').post(platformController.authentificate, nodeController.create_node)
 
     /*  
         Authorization: Bearer TOKEN_VALUE
@@ -29,7 +29,7 @@ module.exports = function (app) {
             long : new_longitude
         }
     */
-    app.route('node/update/position').post(platformController.authentificate, nodeController.update_node_position)
+    app.route('/node/update/position').post(platformController.authentificate, nodeController.update_node_position)
 
     /*  
         Authorization: Bearer TOKEN_VALUE
@@ -38,7 +38,7 @@ module.exports = function (app) {
             community : new_community_name
         }
     */
-    app.route('node/update/community').post(platformController.authentificate, nodeController.update_node_community)
+    app.route('/node/update/community').post(platformController.authentificate, nodeController.update_node_community)
 
     /*  
         Authorization: Bearer TOKEN_VALUE

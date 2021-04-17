@@ -28,7 +28,7 @@ module.exports = function(app) {
             password : platform_password
         }
     */
-    app.route('platform/add').post(platformController.create_platform)
+    app.route('/platform/add').post(platformController.create_platform)
 
     /*  
         Authorization: Bearer TOKEN_VALUE
@@ -43,7 +43,7 @@ module.exports = function(app) {
             password : platform_password
         }
     */
-    app.route('platform/get').get(platformController.authentificate,platformController.get_platform)
+    app.route('/platform/get').get(platformController.authentificate,platformController.get_platform)
     
      /*  Authorization: Bearer TOKEN_VALUE
         {
@@ -52,7 +52,7 @@ module.exports = function(app) {
             password : platform_password
         }
     */
-    app.route('platform/update').post(platformController.authentificate,platformController.update_platform)
+    app.route('/platform/update').post(platformController.authentificate,platformController.update_platform)
     
 
     /*
