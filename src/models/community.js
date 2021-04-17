@@ -24,7 +24,7 @@ Community.create = function(community, result){
     });
 };
 
-Community.get = function(id, result) {
+Community.findById = function(id, result) {
     sql.query("SELECT * from Community WHERE id = ?", id, function (err, res) {
       if (err) {
         console.error("Error: ", err);
@@ -35,6 +35,20 @@ Community.get = function(id, result) {
         result(null, res);
       }
     });
+};
+
+Community.findByName = function (name, result) {
+    sql.query("SELECT * FROM Community WHERE name = ?", [name], function (err, res) {
+      if (err) {
+        console.error("Error: ", err);
+        result(err, null);
+      }
+      else {
+        console.log("Community with name=" + name + " found!");
+        console.log(null, res);
+        result(null, res[0])
+      }
+    })
 };
 
 Community.list = function(result) {
@@ -74,20 +88,6 @@ Community.remove = function (id, result) {
       result(null, res);
     }
   })
-};
-
-Community.find = function (id, result) {
-    sql.query("SELECT * FROM Community WHERE id = ?", [id, password], function (err, res) {
-      if (err) {
-        console.error("Error: ", err);
-        result(err, null);
-      }
-      else {
-        console.log("Community with id=" + id + " found!");
-        console.log(null, res);
-        result(null, res[0])
-      }
-    })
 };
 
 module.exports = Community;
