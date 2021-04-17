@@ -2,10 +2,7 @@
   "name": "wiafirm-map",
   "version": "1.0.0",
   "description": "Map of wiabox nades and wiabox.net communities",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "/src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/script-0/wiabox-nodes-map.git"
@@ -25,5 +22,12 @@
   "homepage": "https://github.com/script-0/wiabox-nodes-map#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
