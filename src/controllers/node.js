@@ -75,13 +75,13 @@ exports.create_node = function (req, res) {
 */
 exports.update_node_position = function (req, res) {
     console.log(req.body)
-    var updated_node = new UserModel({
+    var updated_node = new NodeModel({
         latitude: req.body.latitude,
         longitude: req.body.longitude
     })
     const id = req.body.id
 
-    UserModel.update(id, updated_node, function (err, user) {
+    NodeModel.update(id, updated_node, function (err, user) {
         if (err) {
             res.send(err)
         } else {

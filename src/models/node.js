@@ -55,7 +55,7 @@ Node.findByCommunity = function (community_id, result) {
 
 
 Node.findOutliers = function (result) {
-  this.findByCommunity(-1, result)
+  this.findByCommunity(0, result)
 };
 
 Node.findByPosition = function (latitude, longitude, result) {
