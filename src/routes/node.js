@@ -7,15 +7,15 @@ module.exports = function (app) {
     /*
          Authorization: Bearer TOKEN_VALUE
          {
-             lat  : node_latitude,
-             long : node_longitude
+             latitude  : node_latitude,
+             longitude : node_longitude
          }
  
          or
  
          {
-             lat       : node_latitude,
-             long      : node_longitude,
+             latitude       : node_latitude,
+             longitude      : node_longitude,
              community : community_name
          }
      */
@@ -25,8 +25,8 @@ module.exports = function (app) {
         Authorization: Bearer TOKEN_VALUE
         {
             id : id,
-            lat : new_latitude,
-            long : new_longitude
+            latitude : new_latitude,
+            longitude : new_longitude
         }
     */
     app.route('/node/update/position').post(platformController.authentificate, nodeController.update_node_position)

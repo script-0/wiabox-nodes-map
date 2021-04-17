@@ -86,8 +86,8 @@ exports.create_community = function (req, res) {
     console.log(req.body)
     // !!! verify reg.body Fields !!!
     var new_community = new CommunityModel({
-        lat: req.body.name,
-        long: req.body.creator
+        name: req.body.name,
+        creator: req.body.creator
     })
     CommunityModel.create(new_community, function (err, node) {
         if (err) {

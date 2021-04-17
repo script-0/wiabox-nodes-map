@@ -48,13 +48,12 @@ module.exports = function(app) {
      /*  Authorization: Bearer TOKEN_VALUE
         {
             id       : id
-            name     : platform_name,
-            password : platform_password
+            name     : new_platform_name,
+            password : new_platform_password
         }
     */
     app.route('/platform/update').post(platformController.authentificate,platformController.update_platform)
     
-
     /*
         return : 
         [

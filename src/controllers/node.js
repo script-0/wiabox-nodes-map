@@ -16,15 +16,15 @@ exports.list_all = function (req, res) {
 
 /*
     {
-        lat  : node_latitude,
-        long : node_longitude
+        latitude  : node_latitude,
+        longitude : node_longitude
     }
 
     or
 
     {
-        lat       : node_latitude,
-        long      : node_longitude,
+        latitude       : node_latitude,
+        longitude      : node_longitude,
         community : community_name
     }
 */
@@ -38,8 +38,8 @@ exports.create_node = function (req, res) {
                 res.send(error)
             } else {
                 var new_node = new NodeModel({
-                    lat: req.body.lat,
-                    long: req.body.long,
+                    latitude: req.body.latitude,
+                    longitude: req.body.longitude,
                     community: result.id
                 })
                 NodeModel.create(new_node, function (err, node) {
@@ -53,8 +53,8 @@ exports.create_node = function (req, res) {
         })
     } else {
         var new_node = new NodeModel({
-            lat: req.body.lat,
-            long: req.body.long
+            latitude: req.body.latitude,
+            longitude: req.body.longitude
         })
         NodeModel.create(new_node, function (err, node) {
             if (err) {
@@ -69,15 +69,15 @@ exports.create_node = function (req, res) {
 /*
     {
         id : id,
-        lat : new_latitude,
-        long : new_longitude
+        latitude : new_latitude,
+        longitude : new_longitude
     }
 */
 exports.update_node_position = function (req, res) {
     console.log(req.body)
     var updated_node = new UserModel({
-        lat: req.body.lat,
-        long: req.body.long
+        latitude: req.body.latitude,
+        longitude: req.body.longitude
     })
     const id = req.body.id
 
