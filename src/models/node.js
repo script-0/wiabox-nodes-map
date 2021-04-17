@@ -3,8 +3,8 @@
 var sql = require('./db.js');
 
 var Node = function (node) {
-  this.lat = node.lat;
-  this.long = node.long;
+  this.latitude = node.latitude;
+  this.longitude = node.longitude;
   if (!(node.community === undefined)) {
     this.community = node.community;
   }
@@ -58,14 +58,14 @@ Node.findOutliers = function (result) {
   this.findByCommunity(-1, result)
 };
 
-Node.findByPosition = function (lat, long, result) {
-  sql.query("SELECT * FROM Node WHERE latitude = ? AND longitude = ?", [lat , long], function (err, res) {
+Node.findByPosition = function (latitude, longitude, result) {
+  sql.query("SELECT * FROM Node WHERE latitude = ? AND longitude = ?", [latitude , longitude], function (err, res) {
     if (err) {
       console.error("Error: ", err);
       result(err, null);
     }
     else {
-      console.log("Node with [lat = " + lat + " , long = "+ long +" ] found!");
+      console.log("Node with [latitude = " + latitude + " , longitude = "+ longitude +" ] found!");
       console.log(null, res);
       result(null, res)
     }

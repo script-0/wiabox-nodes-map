@@ -29,8 +29,10 @@ CREATE TABLE Community (
 
 CREATE TABLE Platform(
   id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(10),
-  password VARCHAR(100)
+  name VARCHAR(50),
+  password VARCHAR(100),
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  last_updated DATETIME DEFAULT NOW() ON UPDATE NOW()
 ) ENGINE=INNODB;
 
 INSERT INTO Platform (name,password) VALUES ('wiabox-map','password');
