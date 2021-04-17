@@ -13,7 +13,7 @@ $ git clone https://github.com/script-0/wiabox-nodes-map.git
 $ cd wiabox-nodes-map
 ```
 
-2. Install all required package
+2. Install all required packages
 ```bash
 $ npm install
 ```
@@ -24,7 +24,7 @@ $ npm install
     $ nano .env
     ```
 
-    - Add the following lines and update it as you like
+    - Add the following lines and update they as you like
 
     ```
     DB_HOST=localhost
@@ -44,15 +44,17 @@ $ npm install
     ```
 
 4. Import Database
-    - edit `database/init_db.sql` : At the ends ( when creating DB user and password ) modify `username` and `pasword` and set they values that you are put on .env ( `DB_USER` , `DB_PASSWORD`)
+    - edit `database/init_db.sql` : At the ends ( when creating DB user and password ) modify `username` and `pasword` and set their values as you are define in previous `.env` file ( `DB_USER` , `DB_PASSWORD`)
 
     - import into MySQL
     ```bash
+        $ cd database
         $ mysql -u <root_user> -p<root_password> <  init_db.sql
     ```
 
-5. All done. Run the project
+5. All done. Go to the root folder of project and  run it
     ```bash
+        $ cd ..
         $ npm start
     ```
     Project is running at ` http://127.0.0.1:<PORT_LISTER>/`
