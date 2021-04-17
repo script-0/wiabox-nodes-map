@@ -7,11 +7,74 @@ exports.list_all = function (req, res) {
         console.log("controller");
         if (err) {
             res.send(err);
+        } else {
+            console.log('res', communities);
+            res.send(communities);
         }
-        console.log('res', communities);
-        res.send(communities);
     })
 }
+
+/*
+    {
+        name : community_name
+    }
+    or
+    {
+        id : community_id
+    }
+*/
+exports.get = function (req, res) {
+    if (!(req.body.id === undefined)) {
+        CommunityModel.findById(req.body.id, function (err, community) {
+            if (err) {
+                res.send(err);
+            } else {
+                res.json(community);
+            }
+        })
+    } else {
+        CommunityModel.findByName(req.body.name, function (err, community) {
+            if (err) {
+                res.send(err);
+            } else {
+                res.json(community);
+            }
+        })
+    }
+}
+
+exports.get_creator = function (req, res) {
+    if (!(req.body.id === undefined)) {
+        CommunityModel.findById(req.body.id, function (err, community) {
+            if (err) {
+                res.send(err);
+            } else {
+                NodeModel.findById(community.creator, function (err, creator) {
+                    if (err) {
+                        res.send(err)
+                    } else {
+                        res.json(creator);
+                    }
+                })
+            }
+        })
+    } else {
+        CommunityModel.findByName(req.body.name, function (err, community) {
+            if (err) {
+                res.send(err);
+            } else {
+                NodeModel.findById(community.creator, function (err, creator) {
+                    if (err) {
+                        res.send(err)
+                    } else {
+                        res.json(creator);
+                    }
+                })
+            }
+        })
+    }
+}
+
 
 /*
     {
@@ -23,8 +86,8 @@ exports.create_community = function (req, res) {
     console.log(req.body)
     // !!! verify reg.body Fields !!!
     var new_community = new CommunityModel({
-        lat  : req.body.name,
-        long : req.body.creator
+        lat: req.body.name,
+        long: req.body.creator
     })
     CommunityModel.create(new_community, function (err, node) {
         if (err) {
@@ -42,20 +105,19 @@ exports.create_community = function (req, res) {
         creator : new_community_creator_node_id
     }
 */
-exports.update_node_position = function (req, res) {
+exports.update = function (req, res) {
     console.log(req.body)
-    var updated_community = new UserModel({
-        name    : req.body.name,
-        creator : req.body.creator        
+    var updated_community = new CommunityModel({
+        name: req.body.name,
+        creator: req.body.creator
     })
 
-    const id = req.body.id
-
-    UserModel.update(id, updated_community, function (err, user) {
+    CommunityModel.update(req.body.id, updated_community, function (err, community) {
         if (err) {
             res.send(err)
+        } else {
+            res.json(community)
         }
-        res.json(user)
     })
 }
 
@@ -68,20 +130,22 @@ exports.update_node_position = function (req, res) {
         id : id
     }
 */
-exports.delete_node = function (req, res) {
-    if (!(req.body.id === undefined)){
-        CommunityModel.remove(req.body.id, function (err, user) {
+exports.delete_community = function (req, res) {
+    if (!(req.body.id === undefined)) {
+        CommunityModel.remove(req.body.id, function (err, community) {
             if (err) {
                 res.send(err);
+            } else {
+                res.json(community);
             }
-            res.json(user);
         })
-    }else{
-        CommunityModel.removeByName(req.body.name, function (err, user) {
+    } else {
+        CommunityModel.removeByName(req.body.name, function (err, community) {
             if (err) {
                 res.send(err);
+            } else {
+                res.json(community);
             }
-            res.json(user);
         })
     }
 }
