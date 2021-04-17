@@ -31,13 +31,13 @@ Community.findById = function(id, result) {
       }
       else {
         console.log("Community "+id+": ", res);
-        result(null, res);
+        result(null, res[0]);
       }
     });
 };
 
 Community.findByName = function (name, result) {
-    sql.query("SELECT * FROM Community WHERE name = ?", [name], function (err, res) {
+    sql.query("SELECT * FROM Community WHERE name = ?", name, function (err, res) {
       if (err) {
         console.error("Error: ", err);
         result(err, null);
