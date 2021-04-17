@@ -1,7 +1,6 @@
 'use strict';
 
 module.exports = function(app) {
-    var nodeController = require('../controllers/node.js')
     var platformController = require("../controllers/platform.js")
     var communityController = require('../controllers/community.js')
 
@@ -22,7 +21,7 @@ module.exports = function(app) {
             creator : new_community_creator_node_id
         }
     */
-    app.route('commnunity/update').post(platformController.authentificate,communityController.update_node_community)
+    app.route('commnunity/update').post(platformController.authentificate,communityController.update)
     
     /*  
         Authorization: Bearer TOKEN_VALUE

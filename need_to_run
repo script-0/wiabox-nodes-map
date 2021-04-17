@@ -1,0 +1,3 @@
+#install nodemon
+npm install -g nodemon. And nodemon will be installed globally to your system path. 
+npm install --save-dev nodemon. With a local installation,
