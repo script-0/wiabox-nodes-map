@@ -4,7 +4,7 @@ var sql = require('./db.js');
 
 var Platform = function (platform) {
   this.name = platform.name
-  this.token = platform.token
+  this.password = platform.password
   this.id =  platform.id
 };
 
@@ -38,7 +38,7 @@ Platform.get = function(id, result) {
 };
 
 Platform.get_id = function(platform, result) {
-    sql.query("SELECT id from Platform WHERE name = ? AND token = ?", [platform.name , platform.token], function (err, res) {
+    sql.query("SELECT id from Platform WHERE name = ? AND password = ?", [platform.name , platform.password], function (err, res) {
       if (err) {
         console.error("Error: ", err);
         result(err, null);
@@ -77,8 +77,8 @@ Platform.update = function(platform, result) {
     });
   }
 
-Platform.remove = function (name, token , result) {
-  sql.query("DELETE FROM Platform WHERE name = ? AND token = ?", name, token ,function (err, res) {
+Platform.remove = function (name, password , result) {
+  sql.query("DELETE FROM Platform WHERE name = ? AND password = ?", name, password ,function (err, res) {
     if (err) {
       console.error("Error: ", err);
       result(err, null);
@@ -90,8 +90,8 @@ Platform.remove = function (name, token , result) {
   });
 };
 
-Platform.find = function (name, token, result) {
-  sql.query("SELECT * FROM Platform WHERE name = ? AND token = ?", [name, token], function (err, res) {
+Platform.find = function (name, password, result) {
+  sql.query("SELECT * FROM Platform WHERE name = ? AND password = ?", [name, password], function (err, res) {
     if (err) {
       console.error("Error: ", err);
       result(err, null);
@@ -100,7 +100,7 @@ Platform.find = function (name, token, result) {
         result("Platform { name : "+name+" } not found",null)
     }
     else {
-      console.log("Platform with name=" + name + " and token=" + token + " found!");
+      console.log("Platform with name=" + name + " and password = " + password + " found!");
       console.log(null, res);
       result(null, res[0])
     }
