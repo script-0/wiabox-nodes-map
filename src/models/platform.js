@@ -5,7 +5,9 @@ var sql = require('./db.js');
 var Platform = function (platform) {
   this.name = platform.name
   this.password = platform.password
-  this.id =  platform.id
+  if (!(platform.id === undefined)) {
+    this.id =  platform.id
+  }
 };
 
 
