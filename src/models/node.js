@@ -59,7 +59,7 @@ Node.findOutliers = function (result) {
 };
 
 Node.findByPosition = function (lat, long, result) {
-  sql.query("SELECT * FROM Node WHERE lat = ? AND long = ?", [lat , long], function (err, res) {
+  sql.query("SELECT * FROM Node WHERE latitude = ? AND longitude = ?", [lat , long], function (err, res) {
     if (err) {
       console.error("Error: ", err);
       result(err, null);
