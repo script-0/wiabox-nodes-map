@@ -34,8 +34,8 @@ module.exports = function(app) {
             id : id
         }
     */
-    app.route('/community/update/get').post(platformController.authentificate,communityController.get)
-    app.route('/community/update/get_creator').post(platformController.authentificate,communityController.get_creator)
+    app.route('/community/get').post(platformController.authentificate,communityController.get)
+    app.route('/community/get_creator').post(platformController.authentificate,communityController.get_creator)
 
     /*
         return : 
