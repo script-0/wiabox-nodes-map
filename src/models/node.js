@@ -9,34 +9,34 @@ var Node = function (node) {
     this.community = node.community;
   }
 };
-  
-Node.create = function(node, result){
-    sql.query("INSERT INTO Node SET ?", node, function (err, res) {
-      if (err) {
-        console.error("Error: ", err);
-        result(err, null);
+
+Node.create = function (node, result) {
+  sql.query("INSERT INTO Node SET ?", node, function (err, res) {
+    if (err) {
+      console.error("Error: ", err);
+      result(err, null);
+    }
+    else {
+      console.log("Node created: ", res.insertId);
+      const sortie = {
+        "nodeId": res.insertId,
       }
-      else {
-        console.log("Node created: ", res.insertId);
-        const sortie = {
-          "nodeId": res.insertId,
-        }
-        result(null, sortie);
-      }
-    });
+      result(null, sortie);
+    }
+  });
 };
 
-Node.findById = function(id, result) {
-    sql.query("SELECT * from Node WHERE id = ?", id, function (err, res) {
-      if (err) {
-        console.error("Error: ", err);
-        result(err, null);
-      }
-      else {
-        console.log("Node "+id+": ", res);
-        result(null, res);
-      }
-    });
+Node.findById = function (id, result) {
+  sql.query("SELECT * from Node WHERE id = ?", id, function (err, res) {
+    if (err) {
+      console.error("Error: ", err);
+      result(err, null);
+    }
+    else {
+      console.log("Node " + id + ": ", res);
+      result(null, res);
+    }
+  });
 };
 
 Node.findByCommunity = function (community_id, result) {
@@ -55,33 +55,47 @@ Node.findByCommunity = function (community_id, result) {
 
 
 Node.findOutliers = function (result) {
-  this.findByCommunity(-1,result)
+  this.findByCommunity(-1, result)
 };
 
-Node.list = function(result) {
-    sql.query("SELECT * from Node", function (err, res) {
-      if (err) {
-        console.error("Error: ", err);
-        result(err, null);
-      }
-      else {
-        console.log('Node list: ', res);
-        result(null, res);
-      }
-    })
+Node.findByPosition = function (lat, long, result) {
+  sql.query("SELECT * FROM Node WHERE lat = ? AND long = ?", [lat , long], function (err, res) {
+    if (err) {
+      console.error("Error: ", err);
+      result(err, null);
+    }
+    else {
+      console.log("Node with [lat = " + lat + " , long = "+ long +" ] found!");
+      console.log(null, res);
+      result(null, res)
+    }
+  })
 }
 
-Node.update = function(id, node, result) {
-    sql.query("UPDATE Node SET ? WHERE id = ?", [node, id], function (err, res) {
-      if (err) {
-        console.error("Error: ", err);
-        result(err, null);
-      }
-      else {
-        console.log('Node update: ', res);
-        result(null, res);
-      }
-    })
+Node.list = function (result) {
+  sql.query("SELECT * from Node", function (err, res) {
+    if (err) {
+      console.error("Error: ", err);
+      result(err, null);
+    }
+    else {
+      console.log('Node list: ', res);
+      result(null, res);
+    }
+  })
+}
+
+Node.update = function (id, node, result) {
+  sql.query("UPDATE Node SET ? WHERE id = ?", [node, id], function (err, res) {
+    if (err) {
+      console.error("Error: ", err);
+      result(err, null);
+    }
+    else {
+      console.log('Node update: ', res);
+      result(null, res);
+    }
+  })
 };
 
 Node.remove = function (id, result) {
