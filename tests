@@ -1,0 +1,33 @@
+- [ x ] Create Database
+- [ x ] Run server
+- Platform routes
+    - [ x ] list
+    - [ x ] login , result = {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YWx1ZSI6MSwiaWF0IjoxNjE4Njg1MDg5LCJleHAiOjE2MTg2ODg2ODl9.iVWrvdBCGhWNv-P-WFh6Y8JLpnk28oX0Zjrk2WMuZMc"} 
+    - [ x ] get 
+    - [ x ] update -> 
+        - [ ] cancel current token
+        - [ ] personalize error message
+    - [ x ] Create -> update bd name column length from varchar(10) to varchar(50) [ x ]
+
+- Node routes
+    - [ x ] list
+        - [ ] find by position
+    - [ x ] add return id of created Node
+    - [ x ] update position
+        - [ ] return the update node 
+    - [ x ] getoutliers
+        - [ ] be careful on creating community ( id = 0 is special. it's use as no community )
+    
+- Community routes
+    - [ x ] add
+        - [ ] when a node create a community , update its community id
+    - [ x ] list
+    - [ x ] get -> rename routes
+    - [ x ] get_creator
+
+- Node routes ( with require community)
+    - [ x ] update community
+    - [ x ] findByCommunity
+    - [ x ] getoutliers
+
+- [ ] Integrate UI

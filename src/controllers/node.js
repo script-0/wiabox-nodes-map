@@ -155,7 +155,7 @@ exports.findByCommunity = function (req, res) {
             }
         })
     } else {
-        NodeModel.create(req.body.id, function (err, node) {
+        NodeModel.findByCommunity(req.body.id, function (err, node) {
             if (err) {
                 res.send(err)
             } else {

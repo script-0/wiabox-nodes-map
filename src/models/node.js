@@ -3,8 +3,14 @@
 var sql = require('./db.js');
 
 var Node = function (node) {
-  this.latitude = node.latitude;
-  this.longitude = node.longitude;
+  if (!(node.latitude === undefined)) {
+    this.latitude = node.latitude;
+  }
+
+  if (!(node.longitude === undefined)) {
+    this.longitude = node.longitude;
+  }
+
   if (!(node.community === undefined)) {
     this.community = node.community;
   }
@@ -35,7 +41,7 @@ Node.findById = function (id, result) {
     }
     else {
       console.log("Node " + id + ": ", res);
-      result(null, res);
+      result(null, res[0]);
     }
   });
 };
@@ -68,7 +74,7 @@ Node.findByPosition = function (latitude, longitude, result) {
     else {
       console.log("Node with [latitude = " + latitude + " , longitude = "+ longitude +" ] found!");
       console.log(null, res);
-      result(null, res)
+      result(null, res[0])
     }
   })
 }
