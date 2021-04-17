@@ -78,7 +78,7 @@ exports.update_node_position = function (req, res) {
         lat  : req.body.lat,
         long : req.body.long 
     })
-    const id = req.params.id
+    const id = req.body.id
   
     UserModel.update(id, updated_node, function (err, user) {
       if (err) {
