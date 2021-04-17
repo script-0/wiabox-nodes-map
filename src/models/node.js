@@ -27,7 +27,8 @@ Node.create = function (node, result) {
 };
 
 Node.findById = function (id, result) {
-  sql.query("SELECT * from Node WHERE id = ?", id, function (err, res) {
+  console.log(id)
+  sql.query("SELECT * FROM Node WHERE id = ?", id, function (err, res) {
     if (err) {
       console.error("Error: ", err);
       result(err, null);
