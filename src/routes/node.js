@@ -1,27 +1,26 @@
 'use strict';
 
-module.exports = function(app) {
+module.exports = function (app) {
     var nodeController = require('../controllers/node.js')
     var platformController = require("../controllers/platform.js")
-    var communityController = require('../controllers/community.js')
 
-   /*
-        Authorization: Bearer TOKEN_VALUE
-        {
-            lat  : node_latitude,
-            long : node_longitude
-        }
+    /*
+         Authorization: Bearer TOKEN_VALUE
+         {
+             lat  : node_latitude,
+             long : node_longitude
+         }
+ 
+         or
+ 
+         {
+             lat       : node_latitude,
+             long      : node_longitude,
+             community : community_name
+         }
+     */
+    app.route('node/add').post(platformController.authentificate, nodeController.create_node)
 
-        or
-
-        {
-            lat       : node_latitude,
-            long      : node_longitude,
-            community : community_name
-        }
-    */
-    app.route('node/add').post(platformController.authentificate,nodeController.create_node)
-    
     /*  
         Authorization: Bearer TOKEN_VALUE
         {
@@ -30,8 +29,8 @@ module.exports = function(app) {
             long : new_longitude
         }
     */
-    app.route('node/update/position').post(platformController.authentificate,nodeController.update_node_position)
-    
+    app.route('node/update/position').post(platformController.authentificate, nodeController.update_node_position)
+
     /*  
         Authorization: Bearer TOKEN_VALUE
         {
@@ -39,16 +38,23 @@ module.exports = function(app) {
             community : new_community_name
         }
     */
-    app.route('node/update/position').post(platformController.authentificate,nodeController.update_node_community)
+    app.route('node/update/community').post(platformController.authentificate, nodeController.update_node_community)
 
-    /*
-        return : 
-        [
-            {
-
-            }
-        ]
+    /*  
+        Authorization: Bearer TOKEN_VALUE
+        {
+            name : community_name
+        }
+        or
+        Authorization: Bearer TOKEN_VALUE
+        {
+            id : community_id
+        }
     */
-    app.route('/node/list').get(nodeController.list_all)
+    app.route('/node/list/community').get(platformController.authentificate, nodeController.findByCommunity)
+
+    app.route('/node/list').get(platformController.authentificate, nodeController.list_all)
+
+    app.route('/node/outliers').get(platformController.authentificate, nodeController.getOutliers)
 
 }
