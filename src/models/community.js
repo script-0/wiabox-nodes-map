@@ -89,4 +89,17 @@ Community.remove = function (id, result) {
   })
 };
 
+Community.removeByName = function (name, result) {
+  sql.query("DELETE FROM Community WHERE name = ?", name, function (err, res) {
+    if (err) {
+      console.error("Error: ", err);
+      result(err, null);
+    }
+    else {
+      console.log('Community deleted: ', res);
+      result(null, res);
+    }
+  })
+};
+
 module.exports = Community;
