@@ -65,7 +65,7 @@ $ npm install
 
 ## Future works
 
-- [ x ] Integrate UI
+- [x] Integrate UI
 - [ ] Improve map generated ( use uuid for node and community identifiers , show community name on node , not community id , integrate node states ( connected , disconnected , inactive ...))
 - [ ] Revoke working token when platform updating
 - [ ] Make more test
