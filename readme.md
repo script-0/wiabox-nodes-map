@@ -71,4 +71,4 @@ $ npm install
 - [ ] Make more test
 
 ## Credits
-Built in the frame of **Projet réseau 4GI : Design and Implement website of Wiabox ( a community netwoek)**
+Built in the frame of **Projet réseau 4GI : Design and Implement website of Wiabox ( a community network)**
