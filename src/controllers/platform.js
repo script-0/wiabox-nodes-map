@@ -121,6 +121,6 @@ exports.authentificate = function(req,res,next){
         res.json({error:process.env.TOKEN_INVALID})
       }
   } else {
-      res.json({error:"Token not found",description:"Platform is not authentificated. Log in again"})
+      res.json({error:"Token not found",description:"Platform is not authentificated. Log in again : /platform/login"})
   }
 }
