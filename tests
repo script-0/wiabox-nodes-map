@@ -30,4 +30,6 @@
     - [ x ] findByCommunity
     - [ x ] getoutliers
 
-- [ ] Integrate UI
+- [ x ] Integrate UI
+    - [ x ] Test /map rout
+    - [ x ] securing /map route
