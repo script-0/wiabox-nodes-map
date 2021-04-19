@@ -7,7 +7,7 @@ exports.show_all = function (req, res) {
             res.send(err);
         } else {
             console.log('res', {nodes})
-            res.render('index',{nodes})
+            res.render('index',nodes)
         }
     })
 }
