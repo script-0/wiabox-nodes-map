@@ -21,12 +21,12 @@
     <script>        
         var markers = []
         var i= 0
-        <% nodes.forEach(function(node){
+        <% nodes.forEach(function(node){ %>
             i++
             var tmp = L.marker([<%=node.latitude%> ,<%=node.longitude%>]).addTo(mymap);
             tmp.bindPopup("<center><b>Node " + i + "</b><br>Community id =" + <%=node.community%> + "</center>");
             markers.push(tmp);
-        })%>
+        <% })%>
     </script>
 </body>
 
