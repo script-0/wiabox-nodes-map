@@ -1,21 +1,33 @@
 <html>
-    <head>
-        <title>
 
-        </title>
-        <link rel="stylesheet" href="/assets/leaflet/leaflet.css"/>
+<head>
+    <title>
 
-        <link rel="stylesheet" href="/assets/css/default.css"/>
+    </title>
+    <link rel="stylesheet" href="/assets/leaflet/leaflet.css" />
 
-    </head>
-    <body>        
-        <center>
-            <!--<h1>  WiaBox.Net Nodes </h1>-->
-            <div id="mapid"></div>
-        </center>
-        <script src="/assets/leaflet/leaflet.js"></script>
+    <link rel="stylesheet" href="/assets/css/default.css" />
 
-        <script src="/assets/js/main.js"></script>
+</head>
 
-    </body>
+<body>
+    <center>
+        <!--<h1>  WiaBox.Net Nodes </h1>-->
+        <div id="mapid"></div>
+    </center>
+    <script src="/assets/leaflet/leaflet.js"></script>
+
+    <script src="/assets/js/main.js"></script>
+    <script>        
+        var markers = []
+        var i= 0
+        <% nodes.forEach(function(node){
+            i++
+            var tmp = L.marker([<%=node.latitude%> ,<%=node.longitude%>]).addTo(mymap);
+            tmp.bindPopup("<center><b>Node " + i + "</b><br>Community id =" + <%=node.community%> + "</center>");
+            markers.push(tmp);
+        })%>
+    </script>
+</body>
+
 </html>

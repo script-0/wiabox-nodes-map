@@ -2,7 +2,9 @@ const MAP_TOKEN = "pk.eyJ1IjoiNGdpLXByb2pldC1yZXNlYXUiLCJhIjoiY2tuaDZsaGxkMW95bz
 const MAP_USERNAME = "4gi-projet-reseau"
 const MAP_STYLE = "cknh81nee0c1v18rgmnc5xur3"
 
-const ENSPY_POSITION = {Lat:3.862375 ,Long:11.5}
+/*
+    const ENSPY_POSITION = {Lat:3.862375 ,Long:11.5}
+*/
 
 var mymap = L.map('mapid').setView([ENSPY_POSITION.Lat, ENSPY_POSITION.Long],12);
 
@@ -15,6 +17,7 @@ L.tileLayer("https://api.mapbox.com/styles/v1/"+MAP_USERNAME+"/cknh81nee0c1v18rg
     accessToken: MAP_TOKEN
 }).addTo(mymap);
 
+/*
 var marker_0 = L.marker([ENSPY_POSITION.Lat, ENSPY_POSITION.Long]).addTo(mymap);
 marker_0.bindPopup("<center><b>GI Laboratory</b><br>First Node</center>").openPopup();
 
@@ -25,6 +28,7 @@ for (i=1 ; i < 5 ; i++){
     tmp.bindPopup("<center><b>Node "+i+"</b><br>Description"+i+"</center>");
     markers.push(tmp);
 }
+*/
 
 /*
 var popup = L.popup();
