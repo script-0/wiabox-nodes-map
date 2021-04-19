@@ -35,7 +35,10 @@ console.log("--dirname = " + __dirname)
 
 // Configure the root route
 app.get('/', (req, res) => {
-  res.send('Please look at ... for documentation')
+  res.send('Please look at <a href="https://github.com/script-0/wiabox-nodes-map" target="_blank">'+
+                                'https://github.com/script-0/wiabox-nodes-map'+
+                            '</a> '+
+            'for documentation')
 });
 
 // Initalize body parser to parse JSON objects
