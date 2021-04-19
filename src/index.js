@@ -18,9 +18,11 @@ app.use(cors())
 var platformRoutes = require("./routes/platform.js")
 var nodeRoutes = require("./routes/node.js")
 var communityRoutes = require("./routes/community.js")
+var mapRoutes = require("./routes/map.js")
 platformRoutes(app)
 nodeRoutes(app)
 communityRoutes(app)
+mapRoutes(app)
 
 //Configure EJS HTML rendering
 app.set("view engine", "ejs")
