@@ -2,9 +2,7 @@ const MAP_TOKEN = "pk.eyJ1IjoiNGdpLXByb2pldC1yZXNlYXUiLCJhIjoiY2tuaDZsaGxkMW95bz
 const MAP_USERNAME = "4gi-projet-reseau"
 const MAP_STYLE = "cknh81nee0c1v18rgmnc5xur3"
 
-/*
-    const ENSPY_POSITION = {Lat:3.862375 ,Long:11.5}
-*/
+const ENSPY_POSITION = {Lat:3.862375 ,Long:11.5}
 
 var mymap = L.map('mapid').setView([ENSPY_POSITION.Lat, ENSPY_POSITION.Long],12);
 

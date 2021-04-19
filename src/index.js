@@ -35,7 +35,7 @@ console.log("--dirname = " + __dirname)
 
 // Configure the root route
 app.get('/', (req, res) => {
-  res.render('index')
+  res.send('Please look at ... for documentation')
 });
 
 // Initalize body parser to parse JSON objects
