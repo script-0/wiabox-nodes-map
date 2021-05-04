@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <title>
+        Wiabox Map
+    </title>
+    <link rel="stylesheet" href="/assets/leaflet/leaflet.css" />
+
+    <link rel="stylesheet" href="/assets/css/leaflet-routing-machine.css" />
+
+    <link rel="stylesheet" href="/assets/css/default.css" />
+
+</head>
+
+<body>
+    <center>
+        <!--<h1>  WiaBox.Net Nodes </h1>-->
+        <div id="mapid"></div>
+    </center>
+    <script src="/assets/leaflet/leaflet.js"></script>
+
+    <script src="/assets/js/main.js"></script>
+    
+    <script src="/assets/js/leaflet-routing-machine.js"></script>
+    <script>
+        var markers = []
+        var router = L.routing.osrmv1()
+        var i= 0
+        <% nodes.forEach(function(node){ %>
+            i++
+            var tmp = L.marker([<%=node.latitude%> ,<%=node.longitude%>]).addTo(mymap);
+            tmp.bindPopup("<center><b>" + <%=node.name%> + "</b><br>" + <%=node.description%> + "</center>");
+            markers.push(tmp);
+        <% })%>
+
+        <% routes.forEach(function(route){ %>
+            router.route([
+            L.routing.waypoint([<%=route.origin.latitude%>, <%=route.origin.longitude%>]),
+            L.routing.waypoint([<%=route.destination.latitude%>, <%=route.destination.longitude%>])
+            ], function(err, routes) {
+            if (err || routes.length < 1) {
+                return console.error(err)
+            }            
+            var line = L.routing.line(routes[0]).addTo(map)
+            map.fitBounds(line.getBounds())
+            })
+        <% }) %>
+    </script>
+</body>
+
+</html>

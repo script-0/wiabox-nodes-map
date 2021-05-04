@@ -19,9 +19,11 @@ XToken.sign = function(value){
     }*/
 }
 
+/*
 XToken.revoke = function(token){
     jwt.
 }
+*/
 
 XToken.decode = function(data){
     try{
