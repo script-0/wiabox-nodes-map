@@ -14,6 +14,17 @@ const app = express()
 var cors = require('cors')
 app.use(cors())
 
+// Initalize body parser to parse JSON objects for oldest express version <= 4.16
+/*
+  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(bodyParser.json());
+
+*/
+//For express > 4.16
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cookieParser());
+
 // Initialize routes
 var platformRoutes = require("./routes/platform.js")
 var nodeRoutes = require("./routes/node.js")
@@ -41,12 +52,7 @@ app.get('/', (req, res) => {
             'for documentation')
 });
 
-// Initalize body parser to parse JSON objects
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(cookieParser());
-
-// Launch express server on port 3000
+  // Launch express server on port 3001
 app.listen(process.env.PORT_LISTEN);
 
 console.log('API server started on: ' + process.env.PORT_LISTEN);
