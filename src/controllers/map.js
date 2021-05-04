@@ -16,7 +16,6 @@ exports.yowyob_map = function(req, res){
     res.render('map', {nodes:req.body.nodes})
 }
 
-
 exports.yowyob_route = function(req, res){
     res.render('route', {nodes:req.body.nodes , routes:req.body.routes})
 }
