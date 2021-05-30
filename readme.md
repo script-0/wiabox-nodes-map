@@ -57,7 +57,7 @@ $ npm install
         $ cd ..
         $ npm start
     ```
-    Project is running at ` http://127.0.0.1:<PORT_LISTER>/`
+    Project is running at ` http://127.0.0.1:<PORT_LISTEN>/`
 
 ## Making tests
 - Open files on `routes/` , they are well documented. 
