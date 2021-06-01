@@ -31,7 +31,7 @@ $ npm install
     DB_USER=wiabox
     DB_PASSWORD=wiabox
     DB_DATABASE=wiabox_nodes
-    DB_PORT=3307
+    DB_PORT=3306
 
 
     TOKEN_SECRET=@WiaboxMapASapiTOKEN
