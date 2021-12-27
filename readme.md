@@ -5,7 +5,7 @@ As it's a Node Project, you need :
   * **NodeJs 10+ And Npm 6+**
   * **MySql** for database
 
-## How can install
+## How to install
 1. Clone the project and Move to the project folder :
 
 ```bash
